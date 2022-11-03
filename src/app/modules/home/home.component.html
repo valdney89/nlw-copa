@@ -1,0 +1,67 @@
+<section
+  class="max-w-[1124px] h-screen mx-auto grid grid-cols-2 gap-28 items-center"
+>
+  <main>
+    <img src="../../../assets/imgs/nlw-copa-logo.svg" alt="Logo NLW Cup" />
+
+    <h1 class="mt-14 text-white text-5xl font-bold leading-tight" tabindex="0">
+      Create your pool cup and share it among friends!
+    </h1>
+
+    <div class="mt-10 flex items-center gap-2">
+      <img src="../../../assets/imgs/users-avatar.png" alt="" />
+      <strong class="text-neutral-100 text-xl">
+        <span class="text-secondary-200">+{{ $usersCount | async }}</span> people are already using
+      </strong>
+    </div>
+
+    <form class="mt-10 flex gap-2">
+      <input
+        [formControl]="title"
+        class="flex-1 px-6 py-4 rounded text-neutral-100 bg-neutral-800 border-neutral-600 text-sm"
+        type="text"
+        placeholder="What is your pool cup name?"
+        required
+      />
+
+      <button
+        class="bg-primary-500 px-6 py-4 rounded text-neutral-900 font-bold text-sm uppercase hover:bg-primary-700"
+        type="submit"
+        (click)="handleSubmit()"
+      >
+        Create my pool
+      </button>
+    </form>
+
+    <p class="text-neutral-300 mt-4 text-sm leading-relaxed">
+      After creating your pool, you will receive a unique code that you can use
+      to invite others 🚀
+    </p>
+
+    <div
+      class="mt-10 pt-10 border-t border-neutral-600 flex justify-between items-center text-neutral-100"
+    >
+      <div class="flex items-center gap-6">
+        <img src="../../../assets/imgs/icon-sucess.svg" alt="" />
+        <div class="flex flex-col">
+          <span class="font-bold text-2xl">+{{ $poolsCount | async }}</span>
+          <span>Pools created</span>
+        </div>
+      </div>
+
+      <hr class="w-px h-14 bg-neutral-600 text-neutral-600" />
+
+      <div class="flex items-center gap-6">
+        <img src="../../../assets/imgs/icon-sucess.svg" alt="" />
+        <div class="flex flex-col">
+          <span class="font-bold text-2xl">+{{ $guessesCount | async }}</span>
+          <span>Predictions sended</span>
+        </div>
+      </div>
+    </div>
+  </main>
+  <img
+    src="../../../assets/imgs/nlw-copa-preview.png"
+    alt="Two phone showing pools about the NLW Cup"
+  />
+</section>
