@@ -26,7 +26,6 @@ export class PoolsService {
   }
 
   createPool(pool: Pool): Observable<Pool>{
-    console.log(pool)
     const url = `${this.API}/pools`;
 
     return this.http.post<Pool>(url, pool);

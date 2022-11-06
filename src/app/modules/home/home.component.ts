@@ -1,5 +1,5 @@
 import { Observable } from 'rxjs';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { PoolsService } from '@core/services/pools/pools.service';
 import { GuessesService } from '@core/services/guesses/guesses.service';
 import { UsersService } from '@core/services/users/users.service';
@@ -9,15 +9,16 @@ import { FormControl } from '@angular/forms';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class HomeComponent implements OnInit {
 
   title = new FormControl('');
 
-  $poolsCount: Observable<number> = this.getPoolsCount();
-  $guessesCount: Observable<number> = this.getGuessesCount();
-  $usersCount: Observable<number> = this.getUsersCount();
+  poolsCount$: Observable<number> = this.getPoolsCount();
+  guessesCount$: Observable<number> = this.getGuessesCount();
+  usersCount$: Observable<number> = this.getUsersCount();
 
   constructor(
     private poolsService: PoolsService,
@@ -39,7 +40,7 @@ export class HomeComponent implements OnInit {
     return this.usersService.getUsersCount()
   }
 
-  handleSubmit(): void{
+  handleSubmit(): void {
     if(this.title.valid){
       this.createPool();
     }
