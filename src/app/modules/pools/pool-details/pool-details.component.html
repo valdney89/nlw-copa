@@ -1,0 +1,44 @@
+<section>
+
+  <h1 class="text-white text-3xl font-bold">{{ pool.title }}</h1>
+
+  <div class="mt-10 flex items-center justify-between">
+    <div class="flex flex-col gap-1">
+      <h3 class="text-white">{{ pool.title }}</h3>
+      <p class="text-neutral-200 text-xs">Code: {{ pool.code }}</p>
+    </div>
+    <div>avatares</div>
+  </div>
+
+  <hr class="w-full my-6 text-neutral-600">
+
+  <div class="mb-6">
+    <button class="mr-4" (click)="navSelected = 'predictions'">Your Predictions</button>
+    <button (click)="navSelected = 'ranking'">Ranking</button>
+  </div>
+
+  <ng-container *ngIf="navSelected === 'predictions'; else showRanking">
+    <ng-container *ngIf="pool?.participants?.length; else noParticipants">
+      <div class="grid gap-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        <ng-container *ngFor="let participant of pool?.participants">
+          <div class="w-full">
+            <app-participant-card [participant]="participant"></app-participant-card>
+          </div>
+        </ng-container>
+      </div>
+    </ng-container>
+
+    <ng-template #noParticipants>
+      <p class="text-neutral-200 text-sm leading-relaxed text-center">
+        This pool doesn't have participants yet,
+        how about <span class="text-primary-500 text-sm underline">sharing the pool code</span> with someone?
+        Use code <strong>{{ pool.code }}</strong>
+      </p>
+    </ng-template>
+  </ng-container>
+
+  <ng-template #showRanking>
+    <app-ranking></app-ranking>
+  </ng-template>
+
+</section>

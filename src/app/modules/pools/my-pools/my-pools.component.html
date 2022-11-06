@@ -1,0 +1,43 @@
+<section>
+
+  <h1 class="text-white text-3xl font-bold">My Pools</h1>
+
+  <form class="mt-10 flex gap-2">
+
+    <input
+      [formControl]="code"
+      class="flex-1 px-6 py-4 rounded text-neutral-100 bg-neutral-800 border-neutral-600 text-sm"
+      type="text"
+      placeholder="Find pool by code"
+      required
+    />
+
+    <app-button
+      [theme]="'primary'"
+      [type]="'submit'"
+      (clickEmitter)="findPool()"
+    >Find Pool</app-button>
+
+  </form>
+
+  <hr class="w-full my-6 text-neutral-600">
+
+  <ng-container *ngIf="pools?.length; else noPools">
+    <div class="grid gap-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <ng-container *ngFor="let pool of pools">
+        <div class="w-full">
+          <app-pool-card [pool]="pool"></app-pool-card>
+        </div>
+      </ng-container>
+    </div>
+  </ng-container>
+
+  <ng-template #noPools>
+    <p class="text-neutral-200 text-sm leading-relaxed text-center">
+      You are not participating in any pool yet,
+      how about <span class="text-primary-500 text-sm underline">searching for one by code or creating a new one?</span>
+    </p>
+  </ng-template>
+
+
+</section>

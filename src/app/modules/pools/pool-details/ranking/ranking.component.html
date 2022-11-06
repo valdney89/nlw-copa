@@ -1,0 +1,18 @@
+<div class="grid gap-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+
+<ng-container *ngFor="let position of ranking; let i = index">
+
+  <pre>{{ position.name }}</pre>
+  <div class="w-full">
+    <app-card>
+      <div>
+        <h3>{{ position?.name }}</h3>
+        <p>{{ position?.points }}</p>
+      </div>
+      <div>{{ i }}</div>
+    </app-card>
+  </div>
+
+</ng-container>
+
+</div>

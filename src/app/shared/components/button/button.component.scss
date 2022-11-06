@@ -1,0 +1,23 @@
+@import '../../../../assets/scss/partials/colors';
+
+button {
+  transition: ease-in-out .2s;
+
+  &.btn-google {
+    background-color: $red;
+    color: $white;
+
+    &:hover {
+      background-color: darken($red, 15%);
+    }
+  }
+
+  &.btn-primary {
+    background-color: map-get($primary, 500);
+    color: map-get($neutral, 900);
+
+    &:hover {
+      background-color: map-get($primary, 700);
+    }
+  }
+}

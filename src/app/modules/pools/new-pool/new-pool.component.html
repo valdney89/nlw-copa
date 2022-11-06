@@ -1,0 +1,31 @@
+<section>
+
+  <h1 class="text-white text-3xl font-bold">Create a New Pool</h1>
+
+  <h2 class="text-white mt-10 font-normal text-2xl">
+    Create your own cup pool and share it with friends!
+  </h2>
+
+  <form class="mt-10 flex flex-col md:flex-row gap-2">
+
+    <input
+      [formControl]="title"
+      class="flex-1 px-6 py-4 rounded text-neutral-100 bg-neutral-800 border-neutral-600 text-sm"
+      type="text"
+      placeholder="What is your pool cup name?"
+      required
+    />
+
+    <app-button
+      [theme]="'primary'"
+      [type]="'submit'"
+      (clickEmitter)="createPool()"
+    >Create my Pool</app-button>
+
+  </form>
+
+  <p class="text-neutral-200 mt-6 text-sm leading-relaxed text-center">
+    After creating your pool, you will receive a unique code that you can use to invite others.
+  </p>
+
+</section>

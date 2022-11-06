@@ -1,0 +1,17 @@
+<app-card>
+  <div>
+    <h3 class="text-white">{{ pool.title }}</h3>
+    <p
+      *ngIf="pool?.owner"
+      class="text-neutral-200 text-xs pt-2">
+
+      Created by {{ pool.owner?.name }}
+
+    </p>
+  </div>
+  <div>
+    <div class="rounded-full w-8 h-8 p-2 bg-neutral-700 text-white text-[10px] text-center">
+      {{ pool.participants?.length || '0'  }}
+    </div>
+  </div>
+</app-card>

@@ -1,0 +1,9 @@
+<div *ngIf="display === 'flex'; else displayDefault" class="bg-neutral-800 border-b-primary-500 border-b-2 rounded flex gap-6 p-4 items-center justify-between">
+  <ng-content></ng-content>
+</div>
+
+<ng-template #displayDefault>
+  <div class="bg-neutral-800 border-b-primary-500 border-b-2 rounded p-4">
+    <ng-content></ng-content>
+  </div>
+</ng-template>
